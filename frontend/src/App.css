@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Martel:wght@200;300;400;600;700;800;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Dark gradient background for whole app */
+body {
+  margin: 2rem 0;
+  padding: 0;
+  width: 100vw; 
+  background: var(--color-bg);
+  color: white;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  overflow-y: auto;
+}
+
+.chat-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+/* Title */
+.chat-title {  
+  text-align: center;
+  font-size: var(--font-size-base);
+  background: linear-gradient(269deg, #8d84fb, #b3a6ff, #d9caff);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+/* Chat box */
+.chat-box {
+  border-radius: 1rem;
+  max-width: 80vw;
+  width: 90%;
+  min-height: 400px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin: 2rem auto;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1rem;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(to bottom left, #272626, #3a3939, #666262);
+}
+
+/* Scrollbar */
+.chat-box::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-box::-webkit-scrollbar-track {
+  background: #eee;
+  border-radius: 3px;
+}
+.chat-box::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 3px;
+}
+.chat-box::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* Messages */
+.chat-message {
+  display: inline-block;
+  padding: 0.8rem 1rem;
+  border-radius: 1rem;
+  max-width: 70%;
+  line-height: 1.5;
+  word-wrap: break-word;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+  animation: fadeInUp 0.3s ease forwards;
+  white-space: pre-line; /* preserve line breaks */
+}
+
+/* Hover effect */
+.chat-message:hover {
+  transform: scale(1.01);
+}
+
+/* User messages */
+.chat-message.user {
+  align-self: flex-end;
+  background: #d0e6ff; /* soft blue */
+  color: #03396c;
+  text-align: right;
+  border-bottom-right-radius: 0.3rem;
+  padding: 0rem 4rem;
+}
+
+/* Bot messages */
+.chat-message.bot {
+  align-self: flex-start;
+  color: white;
+  text-align: left;
+  border-bottom-left-radius: 0.3rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  background-color: black;
+}
+
+/* Format bot messages with symbols */
+.chat-message.bot ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style: none; /* remove default bullets */
+}
+
+.chat-message.bot li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+/* Add symbols for each point */
+.chat-message.bot li::before {
+  content: "➤"; /* arrow symbol */
+  position: absolute;
+  left: 0;
+  color: #2e7d32; /* same soft green */
+  font-weight: bold;
+}
+
+/* Optional: checkmark for special highlights */
+.chat-message.bot li.highlight::before {
+  content: "✔";
+  color: #525453;
+  padding-right: 2.5rem;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Chat form */
+.chat-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 60vw;
+  width: 90%;
+  position: relative;
+  padding: 0.5rem;
+  border-radius: 1.2rem;
+  background: linear-gradient(to right, #222, #1b1b1b);
+  border: 1px solid #444;
+  margin: 0 auto;
+}
+
+/* Chat input */
+.chat-input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  background: #2a2a2a;
+  color: white;
+  font-size: 1rem;
+}
+
+.chat-input::placeholder {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Chat button */
+.chat-button {
+  padding: 0.6rem 1rem;
+  border: none;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+
+.chat-button:hover {
+  background-color: #666;
+}
+
+/* Form */
+.chat-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: var(--max-width-input);
+  position: relative;
+  padding: 0.5rem;
+  border-radius: 1.2rem;
+  background: linear-gradient(to right, #353333, #252323, #000000);
+  border: 1px solid rgb(57, 54, 54);
+  margin: 0 auto;
+}
+
+.chat-input {
+  flex: 1;
+  padding: var(--padding-input);
+  border-radius: var(--radius-small);
+  border: none;
+  outline: none;
+  background: var(--color-input-bg);
+  color: white;
+  width: 60vw;
+}
+
+.chat-input::placeholder{
+    color: white;
+    font-size: var(--font-size-sub);
+}
+
+.chat-button {
+  padding: var(--padding-button);
+  position: absolute;
+  border: none;
+  background-color: var(--color-bg-2);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  right: 1rem;
+  font-size: var(--font-size-title);
+  border-radius: 50%;
+}
+
+.chat-button:hover {
+  background: #555;
+}
+
+/* Morphing text */
+.morphing-text {
+  position: relative;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #b3a6ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.morphing-text span {
+  position: absolute;
+  white-space: nowrap;
+}
+
+/* Pet questions */
+.pet-questions {
+  width: 60vw;
+  overflow: hidden;
+  padding: 0rem 0;
+  background: black;
+  box-shadow: 0 0 10px rgba(52, 47, 47, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  position: relative;
+}
+
+.pet-questions::before,
+.pet-questions::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.pet-questions::before {
+  left: 0;
+  background: linear-gradient(to right, black 0%, transparent 100%);
+}
+
+.pet-questions::after {
+  right: 0;
+  background: linear-gradient(to left, black 0%, transparent 100%);
+}
+
+/* Scroll rows */
+.scroll-row {
+  display: flex;
+  gap: 1rem;
+  white-space: nowrap;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  margin: 0.6rem auto;
+  width: max-content;
+}
+
+.row-left {
+  animation: scroll-left 35s linear infinite;
+}
+
+.row-right {
+  animation: scroll-right 40s linear infinite;
+}
+
+/* Question cards */
+.question-card {
+  flex: 0 0 auto;
+  padding: 0.7rem 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  font-family: "Segoe UI", sans-serif;
+  border: 1px solid #444;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Animations */
+@keyframes scroll-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  :root {
+    --font-size-title: 1.3rem;
+    --font-size-base: 0.9rem;
+    --padding-container: 1rem;
+    --min-height-box: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-title: 1.1rem;
+    --font-size-base: 0.85rem;
+    --padding-container: 0.8rem;
+    --min-height-box: 180px;
+  }
+}

@@ -1,0 +1,54 @@
+/* Global variables */
+:root {
+
+    /* height: 100%; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  --color-bg: black;
+  --color-bg-2: #1a1919;
+  --color-user: #4dd0e1;
+  --color-bot: #c5e1a5;
+  --color-input-bg: linear-gradient(220deg, #272626, #3a3939, #666262);
+
+  --font-family: 'Segoe UI', sans-serif;
+  --font-size-base: 4rem;
+  --font-size-title: 1.5rem;
+  --font-size-text: 1.2rem;
+  --font-size-sub: 1rem;
+
+  --padding-container: 1.5rem;
+  --padding-input: 1.2rem 1rem;
+  --padding-button: 0.4rem 1rem;
+
+  --radius: 0.5rem;
+  --radius-small: 1rem;
+
+  --max-width-chat: 80vw;
+  --min-height-box: 2150px;
+
+  --max-width-input: 60vw;
+}
+
+/* 📱 Tablet */
+@media (max-width: 768px) {
+  :root {
+    --font-size-title: 1.3rem;
+    --font-size-base: 0.9rem;
+    --padding-container: 1rem;
+    --min-height-box: 200px;
+  }
+}
+
+/* 📱 Mobile */
+@media (max-width: 480px) {
+  :root {
+    --font-size-title: 1.1rem;
+    --font-size-base: 0.85rem;
+    --padding-container: 0.8rem;
+    --min-height-box: 180px;
+  }
+
+}
